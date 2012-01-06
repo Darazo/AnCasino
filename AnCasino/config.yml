@@ -1,0 +1,52 @@
+# AnCasino v2.0-b1
+# @author: Darazo <darazo.dawning@gmail.com>
+# @license: GPLv3
+# 
+# Instructions for this configuration file can be found at the BukkitDev page:
+# http://dev.bukkit.org/server-mods/ancasino/
+  
+options:
+  track-statistics: true
+  allow-diagonal-winnings: true
+  enable-slot-protection: true
+  chat:
+    display-plugin-prefix: true
+    plugin-prefix-color: '&c'
+    chat-color: '&a'
+
+types:
+  default:
+    cost: 100
+    create-cost: 1000
+    reel:
+    - 42,20
+    - 41,10
+    - 57,5
+    - 46,1
+    
+    rewards:
+      '42':
+        message: Winner - 3 iron blocks! $250 awarded.
+        money: 250.0
+      '41':
+        message: Winner - 3 gold blocks! $500 awarded.
+        money: 500.0
+      '57':
+        message: Winner - 3 diamond blocks! $1200 awarded.
+        money: 1200.0
+      '46':
+        action: kill
+        message: Winne-
+        money: 0.0
+        
+    messages:
+      insufficient-funds: "You can't afford to use this."
+      in-use: "This slot machine is already in use."
+      no-win: "No luck this time."
+      start: "[cost] removed from your account. Let's roll!"
+      help:
+      - "Instructions:"
+      - "Get 3 in a row in order to win. $100 per spin."
+      - "3 iron blocks: $250"
+      - "3 gold blocks: $500"
+      - "3 diamond blocks: $1200"

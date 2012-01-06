@@ -1,0 +1,25 @@
+name: AnCasino
+main: me.darazo.ancasino.AnCasino
+version: 2.0-b1-0.6
+description: Real slot machines for your server.
+softdepend: [Vault]
+commands:
+    casino:
+        description: AnCasino
+        usage: Incorrect command syntax. Check /<command> for command guide.
+permissions:
+    ancasino.*:
+        description: Gives access to all AnCasino commands.
+        children:
+            ancasino.admin: true
+            ancasino.use: true
+            ancasino.create: true
+    ancasino.admin:
+        description: All AnCasino commands and permissions
+        default: op
+    ancasino.use:
+        description: Allows you to use slot machines.
+        default: true
+    ancasino.create:
+        description: User permissions for slot management
+        default: true
