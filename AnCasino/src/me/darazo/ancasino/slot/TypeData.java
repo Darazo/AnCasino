@@ -117,12 +117,14 @@ public class TypeData {
 		Double money = plugin.configData.config.getDouble(path + "money");
 		List<String> action = null;
 		
-		if(plugin.configData.config.isList(path + "action")) {
-			action = plugin.configData.config.getStringList(path + "action");
-		}
-		else {
-			String a = plugin.configData.config.getString(path + "action");
-			action = Arrays.asList(a);
+		if(plugin.configData.config.isSet(path + "action")) {
+			if(plugin.configData.config.isList(path + "action")) {
+				action = plugin.configData.config.getStringList(path + "action");
+			}
+			else {
+				String a = plugin.configData.config.getString(path + "action");
+				action = Arrays.asList(a);
+			}
 		}
 		
 		Reward reward = new Reward(message, money, action);

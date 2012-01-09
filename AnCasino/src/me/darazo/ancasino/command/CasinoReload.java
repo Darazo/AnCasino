@@ -19,7 +19,9 @@ public class CasinoReload extends AnCommand {
 			return true;
 		}
 		
-		plugin.configData.load();
+		plugin.reloadConfig();
+		plugin.slotData.loadSlots();
+		plugin.typeData.loadTypes();
 		sendMessage("Configuration reloaded");
 		return true;
 	}
