@@ -28,7 +28,7 @@ public class RewardData {
 			plugin.economy.depositPlayer(player.getName(), reward.money);
 		}
 		
-		if(reward.action != null) {
+		if(reward.action != null && !reward.action.isEmpty()) {
 			executeAction(reward.action, player);
 		}
 	}

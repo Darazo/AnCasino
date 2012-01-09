@@ -43,13 +43,12 @@ public class CasinoAdd extends AnCommand {
 					String typeName = args[2];
 					
 					// Has type permission
-					if(plugin.permission.canCreate(player, typeName)) {
-						this.type = typeName;
-						this.owner = player.getName();
-					}
-					else {
+					if(!plugin.permission.canCreate(player, typeName)) {
 						sendMessage("Invalid type " + typeName);
 						return true;
+					}
+					else {
+						this.type = typeName;
 					}
 				}
 				
@@ -59,12 +58,15 @@ public class CasinoAdd extends AnCommand {
 					return true;
 				}
 				
+				this.owner = player.getName();
+				
 				// Creation cost
 				Double createCost = plugin.typeData.getType(type).getCreateCost();
 				if(plugin.economy.has(owner, createCost)) {
 					plugin.economy.withdrawPlayer(owner, createCost);
 				}
 				else {
+					sendMessage(player.getName());
 					sendMessage("You can't afford to create this slot machine. Cost: " + createCost);
 					return true;
 				}
