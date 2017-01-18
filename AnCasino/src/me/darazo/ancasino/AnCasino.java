@@ -13,8 +13,6 @@ import me.darazo.ancasino.util.Permissions;
 import me.darazo.ancasino.util.StatData;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
-import org.bukkit.event.Event.Priority;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -66,8 +64,8 @@ public class AnCasino extends JavaPlugin{
 		
 		PluginManager pm = this.getServer().getPluginManager();
 		
-		pm.registerEvent(Event.Type.PLAYER_INTERACT, this.playerListener, Priority.Normal, this);
-		pm.registerEvent(Event.Type.BLOCK_BREAK, this.blockListener, Priority.Highest, this);
+		pm.registerEvents(this.playerListener, this);
+		pm.registerEvents(this.blockListener, this);
 		
 		pdfFile = this.getDescription();
 		
